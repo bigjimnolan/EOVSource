@@ -15,7 +15,7 @@ import {
 import { provideReactWrapper } from '@microsoft/fast-react-wrapper';
 import React from 'react';
 import Deploy from "./Deploy"
-
+import { createRoot } from 'react-dom/client';
 const { wrap } = provideReactWrapper(React, provideFluentDesignSystem());
 
 export const FluentTabs = wrap(fluentTabs())
@@ -31,28 +31,33 @@ function handleTreeClick(object) {
   document.getElementById("data-card").innerHTML=object.target.innerText
 }
 
-const deployData = [
-    {"page":"1", "content": "# How to Deploy React Website\n## Objectives\n* List\n* Visit"}
-]
+async function getText(fileLocation) {
+    const response = await fetch(fileLocation)
+    const text = await response.text()
+    return text
+}
+
+
+function handleTabClick(object) {
+    let domNode = document.getElementsByClassName(object.target.id+' data-card')[0]
+    let root = createRoot(domNode)
+
+    getText(deployData[object.target.id]).then(text => {
+        root.render(<Deploy deployData={text} />)
+    })
+}
+
+const deployData = {
+    "gt": "guides/deploy.md",
+    "cp": "guides/deploy.md"
+}
+
+
 
 
 const tabData = [
-    {"text": "Current Projects", "id":"cp", "panel":<FluentCard id="data-card" style={{backgroundColor: "rgba(255,255,255,0.2)", marginTop: '1vh',textAlign: 'left', height: '80vh'}}>Current Projects</FluentCard>},
-    {"text": "Guides/Tutorials", "id":"gt", "panel":<FluentCard id="data-card" style={{backgroundColor: "rgba(255,255,255,0.2)", marginTop: '1vh', textAlign: 'left', height: '80vh'}}><Deploy deployData={deployData} /></FluentCard>}
-]
-
-
-const treeSeed = [
-    {"text": "Current Projects", "data": [
-            {"text": "Terraform Automator"},
-            {"text": "Kubernetes Gameday Build"},
-            {"text": "Simple Logging Stack"}
-        ]},
-    {"text": "Guides/Tutorials", "data": [
-            {"text": "Kubernetes From Scratch (and an Ubuntu machine :) )"},
-            {"text": "Github Projects"},
-            {"text": "Grafana Visualizations"}
-        ]}
+    {"text": "Current Projects", "id":"cp", "panel":<FluentCard className="cp data-card" style={{backgroundColor: "rgba(255,255,255,0.2)", marginTop: '1vh',textAlign: 'left', height: '80vh'}}>Current Projects</FluentCard>},
+    {"text": "Guides/Tutorials", "id":"gt", "panel":<FluentCard className="gt data-card" style={{backgroundColor: "rgba(255,255,255,0.2)", marginTop: '1vh', textAlign: 'left', height: '80vh'}}>Deploy Data</FluentCard>}
 ]
 
 
@@ -89,7 +94,7 @@ function App() {
     <div className="App" style={{background: 'url('+clouds+')', height: '100vh'}}>
         <header>EOV 3</header>
         <FluentDivider/>
-        <FluentTabs orientation={"vertical"} style={{}} onClick={handleTreeClick}>{MakeTabs(tabData)}</FluentTabs>
+        <FluentTabs orientation={"vertical"} style={{}} onClick={handleTabClick}>{MakeTabs(tabData)}</FluentTabs>
     </div>
   );
 }
