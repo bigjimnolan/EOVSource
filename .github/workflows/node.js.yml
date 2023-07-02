@@ -2,7 +2,9 @@
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: Node.js CI
-
+defaults:
+  run:
+    working-directory: eovreact
 on:
   push:
     branches: [ "main" ]
@@ -26,6 +28,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: cd eovreact && npm ci
-    - run: cd eovreact && npm run build --if-present
-    - run: cd eovreact && npm test
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
