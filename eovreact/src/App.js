@@ -27,9 +27,6 @@ export const FluentTreeView = wrap(fluentTreeView());
 export const FluentTreeItem = wrap(fluentTreeItem());
 export const FluentDivider = wrap(fluentDivider())
 
-function handleTreeClick(object) {
-  document.getElementById("data-card").innerHTML=object.target.innerText
-}
 
 async function getText(fileLocation) {
     const response = await fetch(fileLocation)
