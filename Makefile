@@ -5,3 +5,6 @@ npm-build:
 	cd eovreact && npm run build
 
 build-app: npm-build docker-build
+
+tf-deploy: 
+	cd deploy/terraform/web && terraform apply
