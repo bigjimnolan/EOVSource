@@ -1,5 +1,8 @@
 terraform {
-  backend "local" {
-	path = "../../../../tfstate/eovreact.tfstate"
+  cloud {
+    organization = "electroopticalvisions"
+    workspaces {
+        name = "EOVSource"
+    }
   }
 }
