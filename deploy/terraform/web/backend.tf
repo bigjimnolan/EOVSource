@@ -1,5 +1,5 @@
 terraform {
   backend "local" {
-	path = "../../../../../../tfstate/eovreact.tfstate"
+	path = "../../../../tfstate/eovreact.tfstate"
   }
 }

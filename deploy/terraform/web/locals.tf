@@ -1,5 +1,5 @@
 locals {
   common_tags = {
-    deployment-version = join(terraform.workspace, timestamp())
+    deployment-version = join("",[terraform.workspace, timestamp()])
   }
 }

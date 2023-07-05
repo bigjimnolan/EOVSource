@@ -1,2 +1,2 @@
 ## Resource Identification
-eov-project = "eovreact"
+eov_project = "eovreact"
