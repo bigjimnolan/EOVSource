@@ -44,6 +44,8 @@
 
 name: 'Terraform'
 
+env:
+  TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
 on:
   push:
     branches: [ "main" ]
