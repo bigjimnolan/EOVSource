@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React
 import ReactMarkdown from 'react-markdown'
 
 const Deploy = ({deployData}) => {
