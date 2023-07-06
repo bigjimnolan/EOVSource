@@ -9,6 +9,10 @@ on:
 
 jobs:
   build:
+    defaults:
+      run:
+        working-directory: eovreact
+
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
