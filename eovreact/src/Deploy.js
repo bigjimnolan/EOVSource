@@ -1,4 +1,4 @@
-import React
+import React from 'react';
 import ReactMarkdown from 'react-markdown'
 
 const Deploy = ({deployData}) => {
