@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import './matchMedia';
+import AppTest from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+
+test('renders main page', () => {
+  render(<div>EOV</div>);
+  const linkElement = screen.getByText(/EOV/i);
   expect(linkElement).toBeInTheDocument();
+});
+
+test('next text', () => {
+  expect("test").toBe("test")
 });

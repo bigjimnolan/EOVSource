@@ -1,4 +1,3 @@
-
 import './App.css';
 import clouds from './clouds.png'
 import {
@@ -62,12 +61,11 @@ const MakeTabs = (tabData) => {
     if (Array.isArray(tabData) === false) {
         tabData = tabData.data
     }
-
     let tabs = []
     let tabPanel = []
     for (let tabItem of tabData) {
-        tabs.push(<FluentTab id={tabItem.id}>{tabItem.text}</FluentTab>)
-        tabPanel.push(<FluentTabPanel id={tabItem.id+'Panel'}>{tabItem.panel}</FluentTabPanel>)
+        tabs.push(<FluentTab key={tabItem.id} id={tabItem.id}>{tabItem.text}</FluentTab>)
+        tabPanel.push(<FluentTabPanel key={tabItem.id+'Panel'} id={tabItem.id+'Panel'}>{tabItem.panel}</FluentTabPanel>)
     }
 
     return tabs.concat(tabPanel)
@@ -95,5 +93,13 @@ function App() {
     </div>
   );
 }
+
+function AppTest() {
+  return (
+    <div className="AppTest">
+    </div>
+  );
+}
+
 
 export default App;
