@@ -94,12 +94,4 @@ function App() {
   );
 }
 
-function AppTest() {
-  return (
-    <div className="AppTest">
-    </div>
-  );
-}
-
-
 export default App;
