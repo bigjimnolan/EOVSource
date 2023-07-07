@@ -41,6 +41,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           cache: 'npm'
           cache-dependency-path: eovreact/package-lock.json
+      - run: cat $NPM_CONFIG_USERCONFIG
       - run: pwd && npm ci
       - run: npm publish
         env:
