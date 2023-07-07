@@ -1,2 +1,2 @@
 FROM nginx:latest
-COPY ./eovreact/build /usr/share/nginx/html/
+COPY /home/runner/work/EOVSource/EOVSource/eovreact/build /usr/share/nginx/html/
