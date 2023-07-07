@@ -1,3 +1,3 @@
 FROM nginx:latest
 
-COPY eovreact/build/ /usr/share/nginx/html/
+COPY EOVSource/eovreact/build/ /usr/share/nginx/html/
