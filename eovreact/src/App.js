@@ -45,7 +45,7 @@ function handleTabClick(object) {
 
 const deployData = {
     "gt": "guides/deploy.md",
-    "cp": "guides/deploy.md"
+    "cp": "guides/current.md"
 }
 
 
