@@ -1,0 +1,13 @@
+name: 'AWS SQS'
+description: 'Send message to RabbitMQ'
+inputs:
+  mq-url:
+    description: 'Message Queue'
+    required: true
+  message:
+    description: 'json formatted message with the following required parameters: command, and optional ones based on the command'
+    required: true
+runs:
+  using: 'node18'
+  main: 'push-to-queue.js'
+~                   

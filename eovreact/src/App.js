@@ -1,5 +1,7 @@
 import './App.css';
 import clouds from './clouds.png'
+import logo from './eovCutLogo.png'
+
 import {
     provideFluentDesignSystem,
     fluentCard,
@@ -11,6 +13,7 @@ import {
     fluentTabPanel,
     fluentTreeView
 } from '@fluentui/web-components';
+
 import { provideReactWrapper } from '@microsoft/fast-react-wrapper';
 import React from 'react';
 import Deploy from "./Deploy"
@@ -86,8 +89,8 @@ const MakeTree = (treeData) => {
 
 function App() {
   return (
-    <div className="App" style={{background: 'url('+clouds+')', height: '100vh'}}>
-        <header>EOV 3</header>
+    <div className="App" style={{background: 'url('+clouds+')', height: '100vh', textAlign: 'left'}}>
+        <img src={logo} style={{height:'10vh'}}/><div style={{float:'right', width: '70vw', fontFamily: 'system-ui'}}><h1>ElectroOptical Visions</h1></div>
         <FluentDivider/>
         <FluentTabs orientation={"vertical"} style={{}} onClick={handleTabClick}>{MakeTabs(tabData)}</FluentTabs>
     </div>
