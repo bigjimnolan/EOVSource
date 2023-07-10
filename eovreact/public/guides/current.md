@@ -10,7 +10,7 @@ The CI/CD for the application is as follows:
 I update code on my IDE, commit to github and leverage github actions and terraform cloud
 for the rest of the deployment step.
 
-![Cloud Deploy](./cloud-deploy.png)
+![Cloud Deploy](./guides/cloud-deploy.png)
 
 Deploy Workflow (Dev Side)
 * Update code and commit

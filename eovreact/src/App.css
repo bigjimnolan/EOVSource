@@ -38,3 +38,8 @@
     transform: rotate(360deg);
   }
 }
+
+fluent-tab-panel > fluent-card {
+  overflow-y: auto;
+  padding-left: 2vh;
+}

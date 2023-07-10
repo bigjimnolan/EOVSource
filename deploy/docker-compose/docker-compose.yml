@@ -4,14 +4,20 @@ services:
     ports:
       - "80:80"
   rabbit:
-    image: "rabbitmq:3-management"
+    image: "rabbitmq:3"
     container_name: rabbitmq
     hostname: rabbitmq
+    env_file:
+      - nogit.env
     ports:
       - "5672:5672"
+      - "5671:5671"
       - "15672:15672"
     volumes:
       - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/mnesia/
       - ./rabbitmq/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+      - ./rabbitmq/cacert.pem:/etc/ssl/certs/cacert.pem
+      - ./rabbitmq/eovcert.pem:/etc/ssl/certs/eovcert.pem
+      - ./rabbitmq/eovkey.pem:/eovkey.pem
     restart: always
 

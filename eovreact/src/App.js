@@ -53,7 +53,6 @@ const deployData = {
 
 
 
-
 const tabData = [
     {"text": "Current Projects", "id":"cp", "panel":<FluentCard className="cp data-card" style={{backgroundColor: "rgba(255,255,255,0.2)", marginTop: '1vh',textAlign: 'left', height: '80vh'}}>Current Projects</FluentCard>},
     {"text": "Guides/Tutorials", "id":"gt", "panel":<FluentCard className="gt data-card" style={{backgroundColor: "rgba(255,255,255,0.2)", marginTop: '1vh', textAlign: 'left', height: '80vh'}}>Deploy Data</FluentCard>}
@@ -74,6 +73,13 @@ const MakeTabs = (tabData) => {
     return tabs.concat(tabPanel)
 }
 
+const topTabData = [
+    {"text": "home", "id":"home", "panel": <div><FluentDivider /><FluentTabs orientation={"vertical"} style={{}} onClick={handleTabClick}>{MakeTabs(tabData)}</FluentTabs></div>},
+    {"text": "about", "id":"about", "panel": <div><FluentDivider />Fill in about me page</div>},
+    {"text":"contact", "id":"contact", "panel":<div><FluentDivider /><div>Contact</div><FluentDivider /><div>Me</div></div>},
+]
+
+
 const MakeTree = (treeData) => {
     if (Array.isArray(treeData) === false) {
         treeData = treeData.data
@@ -91,8 +97,7 @@ function App() {
   return (
     <div className="App" style={{background: 'url('+clouds+')', height: '100vh', textAlign: 'left'}}>
         <img src={logo} style={{height:'10vh'}}/><div style={{float:'right', width: '70vw', fontFamily: 'system-ui'}}><h1>ElectroOptical Visions</h1></div>
-        <FluentDivider/>
-        <FluentTabs orientation={"vertical"} style={{}} onClick={handleTabClick}>{MakeTabs(tabData)}</FluentTabs>
+        <FluentTabs orientation={"horizontal"} style={{}} >{MakeTabs(topTabData)}</FluentTabs>
     </div>
   );
 }
