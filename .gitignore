@@ -2,3 +2,4 @@ node_modules
 tfcloud_aws_connect
 nogit*
 *.pem
+istio*

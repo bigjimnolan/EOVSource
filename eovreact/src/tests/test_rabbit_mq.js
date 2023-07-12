@@ -4,7 +4,7 @@ const pwd  = process.env.MQ_PASS
 
 async function send() {
     try {
-        const mqUrl = "amqps://"+user+":"+pwd+"@electroopticalvisions.com"
+        const mqUrl = "amqp://"+user+":"+pwd+"@electroopticalvisions.com"
         const message = "TestUpdate2"
 
         amqp.connect(mqUrl, function(error0, connection) {
@@ -34,7 +34,7 @@ async function send() {
 
 async function receive() {
     try {
-        amqp.connect("amqps://"+user+":"+pwd+"@electroopticalvisions.com", function(error0, connection) {
+        amqp.connect("amqp://"+user+":"+pwd+"@electroopticalvisions.com", function(error0, connection) {
         if (error0) {
             throw error0;
         }

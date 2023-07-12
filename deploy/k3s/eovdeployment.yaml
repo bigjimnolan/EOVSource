@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eovdeployment
+  labels:
+    app: eovweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eovweb
+  template:
+    metadata:
+      labels:
+        app: eovweb
+    spec:
+      containers:
+      - name: eovwebb
+        image: ghcr.io/bigjimnolan/eovsource:main
+        ports:
+        - containerPort: 80
