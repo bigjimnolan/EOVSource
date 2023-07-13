@@ -48,6 +48,8 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
 on:
   push:
+    paths:
+      - 'deploy/terraform/**'
     branches: [ "main" ]
   pull_request:
 
