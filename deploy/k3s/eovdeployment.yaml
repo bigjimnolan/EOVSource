@@ -1,3 +1,23 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: eovwebsvcacct
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: eovwebsvc
+  labels:
+    app: eovweb
+    service: eovwebsvcacct
+spec:
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+  selector:
+    app: eovweb
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -14,8 +34,9 @@ spec:
       labels:
         app: eovweb
     spec:
+      serviceAccountName: eovwebsvcacct
       containers:
-      - name: eovwebb
+      - name: eovweb
         image: ghcr.io/bigjimnolan/eovsource:main
         ports:
         - containerPort: 80

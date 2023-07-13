@@ -96,7 +96,7 @@ const MakeTree = (treeData) => {
 function App() {
   return (
     <div className="App" style={{background: 'url('+clouds+')', height: '100vh', textAlign: 'left'}}>
-        <img src={logo} style={{height:'10vh'}}/><div style={{float:'right', width: '70vw', fontFamily: 'system-ui'}}><h1>ElectroOptical Visions</h1></div>
+        <img alt="eov logo" src={logo} style={{height:'10vh'}}/><div style={{float:'right', width: '70vw', fontFamily: 'system-ui'}}><h1>ElectroOptical Visions</h1></div>
         <FluentTabs orientation={"horizontal"} style={{}} >{MakeTabs(topTabData)}</FluentTabs>
     </div>
   );
