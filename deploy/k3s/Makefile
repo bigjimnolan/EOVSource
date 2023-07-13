@@ -16,7 +16,14 @@ install-k3s:
 install-helm:
 	sudo snap install helm
 install-istio:
-	curl -L https://istio.io/downloadIstio | sh -
-	export PATH=${PWD}/istio-1.18.0/bin:${PATH}
-	istioctl install --set profile=minimal -y
-
+	#curl -L https://istio.io/downloadIstio | sh -
+	#export PATH=${PWD}/istio-1.18.0/bin:${PATH}
+	istioctl install -y
+create-nodeport-workaround:
+	export INGRESS_PORT=$(kubectl -n "${INGRESS_NS}" get service "${INGRESS_NAME}" -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
+	export SECURE_INGRESS_PORT=$(kubectl -n "${INGRESS_NS}" get service "${INGRESS_NAME}" -o jsonpath='{.spec.ports[?(@.name=="https")].nodePort}')
+	export TCP_INGRESS_PORT=$(kubectl -n "${INGRESS_NS}" get service "${INGRESS_NAME}" -o jsonpath='{.spec.ports[?(@.name=="tcp")].nodePort}')
+create-istio-gateway:
+	kubectl apply -f eovistiogateway.yaml 
+	kubectl apply -f eovistiogatewaytraffic.yaml
+        
