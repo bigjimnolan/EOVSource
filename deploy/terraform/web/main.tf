@@ -60,9 +60,9 @@ resource "aws_instance" "tfer--i-0ae050d276fff73a6_" {
     volume_type           = "gp2"
   }
 
-##  security_groups        = ["launch-wizard-1"]
-##  source_dest_check      = "true"
-##  subnet_id              = "subnet-9fdf2be5"
-##  tenancy                = "default"
-##  vpc_security_group_ids = ["sg-0f038c167b7b5a165"]
+  ##  security_groups        = ["launch-wizard-1"]
+  ##  source_dest_check      = "true"
+  ##  subnet_id              = "subnet-9fdf2be5"
+  ##  tenancy                = "default"
+  ##  vpc_security_group_ids = ["sg-0f038c167b7b5a165"]
 }
