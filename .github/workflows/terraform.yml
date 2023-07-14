@@ -50,7 +50,7 @@ on:
   push:
     paths:
       - 'deploy/terraform/**'
-    branches: [ "main" ]
+    branches: [ "main","develop" ]
   pull_request:
 
 permissions:
