@@ -7,11 +7,6 @@ resource "aws_instance" "tfer--i-0ae050d276fff73a6_" {
     capacity_reservation_preference = "open"
   }
 
-  cpu_options {
-    core_count       = "1"
-    threads_per_core = "1"
-  }
-
   credit_specification {
     cpu_credits = "standard"
   }
